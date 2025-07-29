@@ -38,22 +38,17 @@ AI-powered Trello automation system for Northstar Recycling's workflow managemen
    pip3 install -r requirements.txt
    ```
 
-3. **Set up environment variables**
-   Create a `config.env` file with:
-   ```env
-   # Gemini API
-   GEMINI_API_KEY=your_gemini_api_key_here
+3. **Configure settings**
+   The API keys are configured in `northstar_automation/settings.py`. Update the following values:
+   ```python
+   TRELLO_CONFIG = {
+       'API_KEY': 'your_trello_api_key',
+       'TOKEN': 'your_trello_token',
+       'BOARD_ID': 'your_board_id',
+       'LIST_ID': 'your_list_id',
+   }
    
-   # Trello API
-   TRELLO_API_KEY=your_trello_api_key
-   TRELLO_TOKEN=your_trello_token
-   TRELLO_BOARD_ID=your_board_id
-   TRELLO_LIST_ID=your_list_id
-   
-   # Django Settings
-   DEBUG=True
-   SECRET_KEY=your-secret-key-here
-   DATABASE_URL=sqlite:///db.sqlite3
+   GEMINI_API_KEY = 'your_gemini_api_key'
    ```
 
 4. **Run migrations**
@@ -71,13 +66,13 @@ AI-powered Trello automation system for Northstar Recycling's workflow managemen
 
 ### Quick Test
 ```bash
-python3 manage.py test_trello_automation --test-connection
-python3 manage.py test_trello_automation --text "Your test text here"
-```
+# Test connection
+curl -X GET http://localhost:8000/api/trello/test-connection/
 
-### Full Demo
-```bash
-python3 demo_server.py
+# Create a card
+curl -X POST http://localhost:8000/api/trello/create-card/ \
+  -H "Content-Type: application/json" \
+  -d '{"text": "Your text here", "list_name": "To Do"}'
 ```
 
 ### Manual API Testing

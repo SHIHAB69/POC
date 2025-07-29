@@ -1,1 +1,0 @@
-# Management package for trello_automation 

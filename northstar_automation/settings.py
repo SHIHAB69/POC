@@ -15,7 +15,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 # Load environment variables
-load_dotenv('config.env')
+load_dotenv('.env')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -108,10 +108,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # API Configuration
 TRELLO_CONFIG = {
-    'API_KEY': os.getenv('TRELLO_API_KEY'),
-    'TOKEN': os.getenv('TRELLO_TOKEN'),
-    'BOARD_ID': os.getenv('TRELLO_BOARD_ID'),
-    'LIST_ID': os.getenv('TRELLO_LIST_ID'),
+    'API_KEY': 'bd51561f51153cae3302ef167ac0f08d',
+    'TOKEN': 'ATTA8b4492292a51acfb4d0f6625c23c2d495c3400a4f3035eb9d0175ae7d6e7494d6F4DFE93',
+    'BOARD_ID': 'A7W62pc5',
+    'LIST_ID': '688879caf1db1f7438a6d510',
 }
 
-GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+GEMINI_API_KEY = 'AIzaSyCoF43AVgiwhukT4ou3IFq_nKo5oRyMUIs'
